@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css?family=Stylish&amp;display=swap" rel="stylesheet">
+    <title>Homework01</title>
+
+    <!-- JQuery를 import 합니다 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Stylish', sans-serif;
+        }
+        .wrap {
+            width: 700px;
+            margin: auto;
+        }
+        .style-inline {
+            display: inline;
+        }
+        .info-text {
+            width: 100px;
+            text-align: center;
+        }
+        .input-group-padding {
+            padding-bottom: 10px;
+            margin-bottom: 1rem!important;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "https://api.manana.kr/exchange/rate.json",
+                type: "GET",
+                data: {},
+                success: function (response) {
+                    let currency_rate = response[1]["rate"];
+                    let append_string = `달러-원 환율 : ${currency_rate}`;
+                    $("#currency_rate").append(append_string);
+                }
+            })
+        })
+
+        function AlertOnOrder() {
+            alert("주문이 완료되었습니다.");
+        }
+
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div style="text-align: center; padding: 30px;">
+            <img src="https://m.bowlingmall.co.kr/web/product/big/201803/17670_shop1_778769.jpg">
+        </div>
+        <br>
+        <div>
+            <h3 class="style-inline">스톰 드라이브 벨모</h3>  <p>가격 : 230,000원 / 개 (지공비 포함)</p>
+        </div>
+
+        <div>
+            <p>기존의 타임리스를 보완하기 위해 오일이 많은 레인에서 마찰력을 높일 수 있는 나노 하이브리드 커버스톡을 새롭게 개발하게 되었습니다. 테스트 결과 5%의 오일 마찰력이 상승하였으며 향상된 핀케리 능력을 보여줍니다.</p><br>
+        </div>
+
+        <div id="currency_rate">
+
+        </div>
+
+        <div>
+            <h3>주문하기</h3><br>
+
+
+            <div class="input-group flex-nowrap input-group-padding">
+                <div class="input-group-prepend">
+                    <span class="input-group-text info-text" id="addon-wrapping">주문자 이름</span>
+                </div>
+                <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+
+            <div class="input-group mb-3 input-group-padding">
+                <div class="input-group-prepend">
+                    <label class="input-group-text info-text" for="inputGroupSelect01">수량 선택</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>수량 선택</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="input-group flex-nowrap input-group-padding">
+                <div class="input-group-prepend">
+                    <span class="input-group-text info-text" id="addon-wrapping">주소</span>
+                </div>
+                <input type="text" class="form-control" placeholder="주소" aria-label="Address" aria-describedby="addon-wrapping">
+            </div>
+
+            <div class="input-group flex-nowrap input-group-padding">
+                <div class="input-group-prepend">
+                    <span class="input-group-text info-text" id="addon-wrapping">전화번호</span>
+                </div>
+                <input type="text" class="form-control" placeholder="전화번호" aria-label="PhoneNumber" aria-describedby="addon-wrapping">
+            </div>
+        </div>
+
+        <div style="text-align: center">
+            <button onclick="AlertOnOrder()" type="button" class="input-group-text">주문하기</button>
+        </div>
+    </div>
+</body>
+</html>

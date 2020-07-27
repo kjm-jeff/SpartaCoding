@@ -62,6 +62,30 @@
         })
 
         function AlertOnOrder() {
+            if ($("#input_name").val() == '')
+            {
+                alert("이름은 공란이 될 수 없습니다.");
+                return;
+            }
+
+            if ($("#inputGroupSelect01").val() == '수량 선택')
+            {
+                alert("수량을 선택해주세요.");
+                return;
+            }
+
+            if ($("#input_address").val() == '')
+            {
+                alert("주소는 공란이 될 수 없습니다.");
+                return;
+            }
+
+            if ($("#input_phone_number").val() == '')
+            {
+                alert("전화번호는 공란이 될 수 없습니다.");
+                return;
+            }
+            
             alert("주문이 완료되었습니다.");
         }
 
@@ -93,7 +117,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text info-text" id="addon-wrapping">주문자 이름</span>
                 </div>
-                <input type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="addon-wrapping">
+                <input id="input_name" type="text" class="form-control" placeholder="이름" aria-label="Username" aria-describedby="addon-wrapping">
             </div>
 
             <div class="input-group mb-3 input-group-padding">
@@ -112,14 +136,14 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text info-text" id="addon-wrapping">주소</span>
                 </div>
-                <input type="text" class="form-control" placeholder="주소" aria-label="Address" aria-describedby="addon-wrapping">
+                <input id="input_address" type="text" class="form-control" placeholder="주소" aria-label="Address" aria-describedby="addon-wrapping">
             </div>
 
             <div class="input-group flex-nowrap input-group-padding">
                 <div class="input-group-prepend">
                     <span class="input-group-text info-text" id="addon-wrapping">전화번호</span>
                 </div>
-                <input type="text" class="form-control" placeholder="전화번호" aria-label="PhoneNumber" aria-describedby="addon-wrapping">
+                <input id="input_phone_number" type="text" class="form-control" placeholder="전화번호" aria-label="PhoneNumber" aria-describedby="addon-wrapping">
             </div>
         </div>
 
